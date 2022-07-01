@@ -756,10 +756,10 @@ if [ ! -z $Subproject ]; then
     else
 	echo "Genarate bigwigs"
 	for Species in ${Genome[@]}; do
-	    parallel --jobs 6 --delay 1 'igvtools count -w 25 -f mean -e 250 '$dir'/{}/{}.'$Species'.rmdup.bam '$dir'/Useful/{}.'$Species'.rmdup.wig '$genomeBed'/'$Species'.chrom.sizes >>'$dir'/Run.log' ::: `echo ${Subproject[@]}`
+	    parallel --jobs 6 --delay 1 '/home/whuang022/IGV_2.13.1//igvtools count -w 25 -f mean -e 250 '$dir'/{}/{}.'$Species'.rmdup.bam '$dir'/Useful/{}.'$Species'.rmdup.wig '$genomeBed'/'$Species'.chrom.sizes >>'$dir'/Run.log' ::: `echo ${Subproject[@]}`
 	    cd $dir/Useful
-	    parallel --jobs 6 --delay 1 'wigToBigWig {} '$genomeBed'/'$Species'genome.bed {.}.bw 2>>'$dir'/Run.log' ::: *wig
-	    rm *wig
+	    parallel --jobs 6 --delay 1 '/home/whuang022/ucsu_tools//wigToBigWig {} '$genomeBed'/'$Species'genome.bed {.}.bw 2>>'$dir'/Run.log' ::: *wig
+	    #rm *wig
 	done
     fi
 fi
