@@ -614,7 +614,7 @@ for Name in ${Project[@]}; do
 			    # plot reads disbution
 			    tail -n +5 $Name.$Species2.read_distribution.txt | head -n -1 > temp1.txt
 			    head -n 3  $Name.$Species2.read_distribution.txt | grep Assigned | sed 's/Total Assigned Tags//g' | sed 's/ //g' > temp2.txt
-			    /usr/local/bin/Rscript $myPATH/Read_distribution.R $dir/fastqs/ $Name.$Species2 --save
+			    Rscript $myPATH/Read_distribution.R $dir/fastqs/ $Name.$Species2 --save
 			    rm temp1.txt temp2.txt
 			fi
 		    done
@@ -647,7 +647,7 @@ for Name in ${Project[@]}; do
 	    if [ ${Type[$index]} == "RNA" ] || [ ${Type[$index]} == "crop" ] || [ ${Type[$index]} == "cite" ] || [ ${Type[$index]} == "cellhash" ]; then
 	  	# plot UMI/cell or gene/cell
 		echo "Convert bed to UMI count matrix, plot UMI_gene_perCell, generate h5"
-		/usr/local/bin/Rscript $myPATH/UMI_gene_perCell_plot_v3.R $dir/fastqs/ $Name.$Species2 --save
+		Rscript $myPATH/UMI_gene_perCell_plot_v3.R $dir/fastqs/ $Name.$Species2 --save
 	    fi
 	done
 
