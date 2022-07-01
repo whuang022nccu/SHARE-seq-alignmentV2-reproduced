@@ -748,8 +748,8 @@ do
 done
 
 count=`ls -1 $dir/Useful/*bw 2>/dev/null | wc -l`
-Genome=(hg19 mm10 hg38) # define genome
-
+#Genome=(hg19 mm10 hg38) # define genome
+Genome=(hg19)
 if [ ! -z $Subproject ]; then
     if [ $count != 0 ]; then
 	echo "Found bigwig files, skip converting bam to bigwig"
