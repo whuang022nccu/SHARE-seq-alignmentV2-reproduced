@@ -9,9 +9,9 @@
 # when there are 4 fastqs per lane, fastqs need to be named as "*S1_L001/2/3/4_R1/R2/I1/I2_001.fastq.gz" (when there are multiple lanes) or "_S1_R1/R2/I1/I2_001.fastq.gz" (when there is one lane), R1: bio read1, R2: bio read2, I1: index1, I2: index2
 # when there are 2 fastqs per lane, fastqs need to be named as "*S1_L001/2/3/4_R1/2_001.fastq.gz" or "_S1_R1/2_001.fastq.gz". important to rename files as R1 and "R4"
 
-rawdir=/mnt/users/sai/Script/Split-seq_Sai/example_fastq/
-dir=/mnt/users/sai/Script/Split-seq_Sai/example_output/
-yaml=/mnt/users/sai/Script/Split-seq_Sai/config.example.yaml
+rawdir=/media/whuang022/DATA/share_seq_v2_In # e.g. ~/xxx/201021_SL-NVQ_0277_AHTHLLDRXX/ or ./test_fastq_nova/
+dir=/media/whuang022/DATA/share_seq_v2_out
+yaml=/home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/config.example.yaml
 Project=(BMMC.RNA BMMC.ATAC)
 
 Type=(RNA ATAC)
