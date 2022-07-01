@@ -159,10 +159,10 @@ if [ "$Start" = Fastq ]; then
 	    # Runing full pipeline
 	    echo "Split fastqs to small files"
 	    dosplitfull(){
-                /mnt/users/sai/Package/fastp/fastp -i $2/R1.$1.fastq.gz -o $2/smallfastqs/$1.$3.R1.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
-                /mnt/users/sai/Package/fastp/fastp -i $2/R2.$1.fastq.gz -o $2/smallfastqs/$1.$3.R2.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
-                /mnt/users/sai/Package/fastp/fastp -i $2/I1.$1.fastq.gz -o $2/smallfastqs/$1.$3.I1.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
-                /mnt/users/sai/Package/fastp/fastp -i $2/I2.$1.fastq.gz -o $2/smallfastqs/$1.$3.I2.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
+                /bin/fastp -i $2/R1.$1.fastq.gz -o $2/smallfastqs/$1.$3.R1.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
+                /bin/fastp -i $2/R2.$1.fastq.gz -o $2/smallfastqs/$1.$3.R2.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
+                /bin/fastp -i $2/I1.$1.fastq.gz -o $2/smallfastqs/$1.$3.I1.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
+                /bin/fastp -i $2/I2.$1.fastq.gz -o $2/smallfastqs/$1.$3.I2.fastq.gz -S 80000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
 		wait
             }
             export -f dosplitfull
@@ -171,10 +171,10 @@ if [ "$Start" = Fastq ]; then
 	    # Runing QC pipeline
 	    echo "Split fastqs to small files"
 	    dosplitQC(){
-		/mnt/users/sai/Package/fastp/fastp -i $2/R1.$1.fastq.gz -o $2/smallfastqs/$1.$3.R1.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
-		/mnt/users/sai/Package/fastp/fastp -i $2/R2.$1.fastq.gz -o $2/smallfastqs/$1.$3.R2.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
-		/mnt/users/sai/Package/fastp/fastp -i $2/I1.$1.fastq.gz -o $2/smallfastqs/$1.$3.I1.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
-		/mnt/users/sai/Package/fastp/fastp -i $2/I2.$1.fastq.gz -o $2/smallfastqs/$1.$3.I2.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log &
+		/bin/fastp -i $2/R1.$1.fastq.gz -o $2/smallfastqs/$1.$3.R1.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
+		/bin/fastp -i $2/R2.$1.fastq.gz -o $2/smallfastqs/$1.$3.R2.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
+		/bin/fastp -i $2/I1.$1.fastq.gz -o $2/smallfastqs/$1.$3.I1.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
+		/bin/fastp -i $2/I2.$1.fastq.gz -o $2/smallfastqs/$1.$3.I2.fastq.gz --reads_to_process $4 -S 4000000 --thread 1 -d 4 -A -G -L -Q 2>>$2/split.log
 		wait
             }
             export -f dosplitQC
