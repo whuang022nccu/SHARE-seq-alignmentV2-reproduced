@@ -767,21 +767,21 @@ fi
 # clean up
 echo "Cleaning up folder"
 cp $dir/*/*.csv $dir/Useful/
-rm $dir/Useful/*filtered.counts.csv 
-rm -r $dir/temp/
+#rm $dir/Useful/*filtered.counts.csv 
+#rm -r $dir/temp/
 
 pigz --fast -p $cores $dir/*/*.csv
 pigz --fast -p $cores $dir/*/*.groups.tsv
 
 
-rm $dir/*/*wdup.all.bam* $dir/*/*namesort.bam $dir/igv.log $dir/*/*exon.featureCounts.bam 
-rm $dir/*/*grouped.bam $dir/*/*rigid.reheader.unique.st.bam*
+#rm $dir/*/*wdup.all.bam* $dir/*/*namesort.bam $dir/igv.log $dir/*/*exon.featureCounts.bam 
+#rm $dir/*/*grouped.bam $dir/*/*rigid.reheader.unique.st.bam*
 
-if [ $cleanup == "T" ]; then
-    rm $dir/fastqs/discard.R1.fastq.gz touch $dir/fastqs/discard.R1.fastq.gz
-    rm $dir/fastqs/discard.R2.fastq.gz touch $dir/fastqs/discard.R2.fastq.gz
-    $dir/*/*.groups.tsv.gz
-fi
+#if [ $cleanup == "T" ]; then
+#    rm $dir/fastqs/discard.R1.fastq.gz touch $dir/fastqs/discard.R1.fastq.gz
+#    rm $dir/fastqs/discard.R2.fastq.gz touch $dir/fastqs/discard.R2.fastq.gz
+#    $dir/*/*.groups.tsv.gz
+#fi
 
 echo "The pipeline is completed!! Author: Sai Ma <sai@broadinstitute.org>"
 
