@@ -80,7 +80,7 @@ cp $yaml $dir/
 cd $dir 
 if [ -f $dir/Run.log ]; then rm $dir/Run.log; fi
 
-export PATH="/mnt/users/sai/miniconda2/bin:$PATH"
+#export PATH="/mnt/users/sai/miniconda2/bin:$PATH"
 
 # check yaml file, make sure no duplicated P1.xx
 p1=$(cat $yaml | grep P1. | sort | uniq -d)
