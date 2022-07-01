@@ -1217,3 +1217,4 @@ try:
     print("%.3g" % perc + "% reads demultiplexed")
 except ZeroDivisionError: 
     print("Warning too few reads")
+    
