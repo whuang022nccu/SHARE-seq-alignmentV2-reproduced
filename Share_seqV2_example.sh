@@ -52,15 +52,15 @@ cleanup=F
 #### do not change following
 
 # define path
-toolPATH='/mnt/Apps/JDB_tools/'
-myPATH='/mnt/users/sai/Script/Split-seq_Sai/'
-tssFilesPATH='/mnt/users/sai/Script/Split-seq_Sai/TSSfiles/' 
-picardPATH='/mnt/bin/picard/picard.jar'
-bowtieGenome='/mnt/users/sai/Script/Split-seq_Sai/refGenome/bowtie2/'
-starGenome='/mnt/users/sai/Data/star/genome/'
-genomeBed='/mnt/users/sai/Script/Split-seq_Sai/genomeBed/'
-bismarkGenome='/mnt/users/sai/Script/Split-seq_Sai/refGenome/bismark/'
-fastpPath='/mnt/users/sai/Package/fastp/'
+toolPATH='/home/whuang022/JDBTools/'
+myPATH='/home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main'
+tssFilesPATH='/home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/TSSfiles'
+picardPATH='/home/whuang022/picard_2.14.1/picard.jar'
+bowtieGenome='/home/whuang022/SHARE-seq-alignment/refGenome/bowtie2/'
+starGenome='/home/whuang022/SHARE-seq-alignment/refGenome/star/'
+genomeBed='/home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/genomeBed'
+#bismarkGenome='/mnt/users/sai/Script/Split-seq_Sai/refGenome/bismark/'
+fastpPath='/bin'
 
 # real code
 export SHELL=$(type -p bash)
