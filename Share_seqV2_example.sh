@@ -113,24 +113,24 @@ fi
 if [ "$Start" = Fastq ]; then
     echo "Skip bcltofastq"
     if [ -f $dir/fastqs/filesi1.xls ]; then rm $dir/fastqs/filler*; fi
-    cd $rawdir
+		cd $rawdir
     if ls *L001_R1_001.fastq.gz 1> /dev/null 2>&1; then
-	temp=$(ls *_L001_R1_001.fastq.gz)
-	Run=$(echo $temp | sed -e 's/\_S0\_L001\_R1\_001.fastq.gz//')
-	singlelane=F
-	temp=$(ls *L00*_R1_001.fastq.gz)
-	VAR=( $temp )
-	nolane=${#VAR[@]}
-	echo "Detected $nolane lanes"
+		temp=$(ls *_L001_R1_001.fastq.gz)
+		Run=$(echo $temp | sed -e 's/\_S0\_L001\_R1\_001.fastq.gz//')
+		singlelane=F
+		temp=$(ls *L00*_R1_001.fastq.gz)
+		VAR=( $temp )
+		nolane=${#VAR[@]}
+		echo "Detected $nolane lanes"
     elif ls *S1_R1_001.fastq.gz 1> /dev/null 2>&1; then
-	echo "Detected single lane"
-	temp=$(ls *S1_R1_001.fastq.gz)
-	Run=$(echo $temp | sed -e 's/\_\S1\_\R1\_\001.fastq.gz//')
-	singlelane=T
-	nolane=1
+		echo "Detected single lane"
+		temp=$(ls *S1_R1_001.fastq.gz)
+		Run=$(echo $temp | sed -e 's/\_\S1\_\R1\_\001.fastq.gz//')
+		singlelane=T
+		nolane=1
     else
-	echo "No fastq with matched naming format detected; exit..."
-	exit
+		echo "No fastq with matched naming format detected; exit..."
+		exit
     fi
     
     echo "Run number is:" $Run
