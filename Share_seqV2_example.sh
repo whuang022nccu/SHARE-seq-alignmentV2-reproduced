@@ -604,11 +604,11 @@ for Name in ${Project[@]}; do
 			else
 			    echo "Calculate read distribution"
 			    if [ $Runtype = QC ]; then
-				read_distribution.py -i $dir/fastqs/$Name.$Species2.wdup.bam -r $genomeBed/$Species2.UCSC_RefSeq.bed > $Name.$Species2.read_distribution.txt 2>>$dir/Run.log
+				/home/whuang022/RSeQC/scripts//read_distribution.py -i $dir/fastqs/$Name.$Species2.wdup.bam -r $genomeBed/$Species2.UCSC_RefSeq.bed > $Name.$Species2.read_distribution.txt 2>>$dir/Run.log
 			    else
 				# only use 1% of reads
 				samtools view -s 0.01 -o $dir/fastqs/temp.bam $dir/fastqs/$Name.$Species2.wdup.bam
-				read_distribution.py -i $dir/fastqs/temp.bam -r $genomeBed/$Species2.UCSC_RefSeq.bed > $Name.$Species2.read_distribution.txt 2>>$dir/Run.log
+				/home/whuang022/RSeQC/scripts//read_distribution.py -i $dir/fastqs/temp.bam -r $genomeBed/$Species2.UCSC_RefSeq.bed > $Name.$Species2.read_distribution.txt 2>>$dir/Run.log
 				rm $dir/fastqs/temp.bam
 			    fi
 			    # plot reads disbution
