@@ -452,11 +452,11 @@ for Name in ${Project[@]}; do
 			    echo "Feature counting on exons"
 			    # count exon
                             if [ ${keepMultiMapping[$index]} == "T" ]; then
-				featureCounts -T $cores -Q 0 -M -a $myPATH/gtf/$Species2.$refgene.gtf -t exon -g $genename \
-                                    -o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.rigid.reheader.unique.st.bam >>$dir/Run.log
+								/home/whuang022/subread-2.0.2-Linux-x86_64/bin//featureCounts -T $cores -Q 0 -M -a $myPATH/gtf/$Species2.$refgene.gtf -t exon -g $genename \
+                                    -o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.rigid.reheader.unique.st.bam -A /home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/hg19.chromAlias.csv >>$dir/Run.log	
                             else
-				featureCounts -T $cores -Q 30 -a $myPATH/gtf/$Species2.$refgene.gtf -t exon -g $genename \
-                                    -o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.rigid.reheader.unique.st.bam >>$dir/Run.log
+								/home/whuang022/subread-2.0.2-Linux-x86_64/bin//featureCounts -T $cores -Q 30 -a $myPATH/gtf/$Species2.$refgene.gtf -t exon -g $genename \
+													-o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.rigid.reheader.unique.st.bam -A /home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/hg19.chromAlias.csv >>$dir/Run.log
                             fi
 			    # Extract reads that assigned to genes
 			    mv $Name.$Species2.rigid.reheader.unique.st.bam.featureCounts.bam $Name.$Species2.exon.featureCounts.bam
@@ -468,12 +468,12 @@ for Name in ${Project[@]}; do
 			    echo "Count feature on both intron and exon"
 			    if [ $keepIntron == "T" ]; then
 				if [ ${keepMultiMapping[$index]} == "T" ]; then
-				    featureCounts -T $cores -Q 0 -M -a $myPATH/gtf/$Species2.$refgene.gtf -t gene -g $genename \
-						  -o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.exon.featureCounts.bam >>$dir/Run.log
+				    	/home/whuang022/subread-2.0.2-Linux-x86_64/bin//featureCounts -T $cores -Q 0 -M -a $myPATH/gtf/$Species2.$refgene.gtf -t gene -g $genename \
+						  -o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.exon.featureCounts.bam -A /home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/hg19.chromAlias.csv >>$dir/Run.log
 				# then for reads mapped to multiple genes,  only keep if all its alignments are within a single gene
 				else
-				    featureCounts -T $cores -Q 30 -a $myPATH/gtf/$Species2.$refgene.gtf -t gene -g $genename \
-					-o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.exon.featureCounts.bam >>$dir/Run.log
+				    /home/whuang022/subread-2.0.2-Linux-x86_64/bin//featureCounts -T $cores -Q 30 -a $myPATH/gtf/$Species2.$refgene.gtf -t gene -g $genename \
+					-o $Name.$Species2.feature.count.txt -R BAM $Name.$Species2.exon.featureCounts.bam -A /home/whuang022/SHARE-seq-alignmentV2/SHARE-seq-alignmentV2-main/hg19.chromAlias.csv >>$dir/Run.log
 				fi
 				samtools sort -@ $cores -m 2G -o $Name.$Species2.wdup.bam  $Name.$Species2.exon.featureCounts.bam.featureCounts.bam
 				rm $Name.$Species2.exon.featureCounts.bam.featureCounts.bam
