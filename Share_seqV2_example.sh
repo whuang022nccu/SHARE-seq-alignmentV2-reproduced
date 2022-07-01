@@ -393,13 +393,13 @@ for Name in ${Project[@]}; do
 			zcat $Name.$Species.bed.gz | \
 			    awk -v OFS='\t' '{a[$4] += $5} END{for (i in a) print a[i], i}'| \
 			    awk -v OFS='\t' '{if($1 >= '${ReadsPerBarcode[$index]}') print }'> $Name.$Species.wdup.RG.freq.bed
-			/usr/local/bin/Rscript $myPATH/sum_reads_v2.R $dir/fastqs/ $Name.$Species.wdup.RG.freq.bed --save
+			Rscript $myPATH/sum_reads_v2.R $dir/fastqs/ $Name.$Species.wdup.RG.freq.bed --save
 			mv $Name.$Species.wdup.RG.freq.bed.csv $Name.$Species.unfiltered.counts.csv
 
 			echo "count filtered reads"
 			zcat $Name.$Species.bed.gz | cut -f4 | uniq -c | \
 			    awk -v OFS='\t' '{if($1 >= '${ReadsPerBarcode[$index]}') print }' > $Name.$Species.rmdup.RG.freq.bed
-			/usr/local/bin/Rscript $myPATH/sum_reads_v2.R $dir/fastqs/ $Name.$Species.rmdup.RG.freq.bed --save
+			Rscript $myPATH/sum_reads_v2.R $dir/fastqs/ $Name.$Species.rmdup.RG.freq.bed --save
 			mv $Name.$Species.rmdup.RG.freq.bed.csv $Name.$Species.filtered.counts.csv
 
 			rm $Name.$Species.wdup.RG.freq.bed $Name.$Species.rmdup.RG.freq.bed 
