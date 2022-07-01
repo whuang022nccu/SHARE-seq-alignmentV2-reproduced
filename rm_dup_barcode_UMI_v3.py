@@ -55,7 +55,7 @@ if __name__ == "__main__":
     countset = dict()
 
     print("Allow " + str(mismatch) + " mismatch for UMIs")
-
+    newposition = False
     while 1:
         line = filein.readline().strip().decode()
         if len(line) == 0:
