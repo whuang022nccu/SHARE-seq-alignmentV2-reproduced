@@ -6,7 +6,8 @@
 
 # SHARE-seq-alignmentV2
 Pipeline for demultiplexing and aligning both ATAC and RNA data generated in SHARE-seqV2.\
-The V2 pipeline is much faster than previous version and less demanding. The fastq and output files are reformated.\
+The V2 pipeline is much faster than previous version and less demanding. \
+Note: The fastq and output files are reformated and different from V1 pipeline.\
 **Author: Sai Ma. masai.zju@gmail.com**
 
 # Important note
@@ -99,8 +100,10 @@ For RNA, the most important files are UMIxCell matrix (.gene.bc.matrices.h5) and
 This pipeline currently keeps many intermedia files. If preferred, they can be manually removed afterwards.
 
 # Read data example
-Public SHARE-seq datasets are available at [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE140203).\
-A set of fastq files for human bone marrow cells experiment can be downloaded [here](https://drive.google.com/drive/folders/1d0gfb7qrBL76MMh0JPRX3z9-1Wqxt0vd?usp=sharing).
+A set of fastq files for human bone marrow cells experiment can be downloaded [here](https://drive.google.com/drive/folders/1d0gfb7qrBL76MMh0JPRX3z9-1Wqxt0vd?usp=sharing). 
+It only takes a few minutes to run the pipeline on the test data.
+More SHARE-seqV2 data will be released soon. 
+
 
 # Cite us
 For more details, please refer to [Ma et al. Chromatin Potential Identified by Shared Single-Cell Profiling of RNA and Chromatin, Cell 2020](https://www.sciencedirect.com/science/article/pii/S0092867420312538)
